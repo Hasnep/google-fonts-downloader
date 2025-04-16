@@ -27,6 +27,7 @@ jobs:
       - name: Cache Nix environment
         uses: nix-community/cache-nix-action@c448f065ba14308da81de769632ca67a3ce67cf5 # ratchet:nix-community/cache-nix-action@v6
         with:
-          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+          primary-key: nix-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-${{ runner.arch }}
       - name: Run Nix build
         run: nix build
