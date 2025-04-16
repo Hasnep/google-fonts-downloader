@@ -26,7 +26,7 @@
             pkgs.rustc
             pkgs.pkg-config
           ];
-          buildInputs = [ ];
+          buildInputs = [ pkgs.openssl ];
         in
         {
           packages = {
